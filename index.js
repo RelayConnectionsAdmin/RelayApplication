@@ -5,7 +5,8 @@ const CONNECTION = process.env.MONGODB_CONNECTION;
 mongoose
 
   .connect(CONNECTION, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => app.listen(PORT, () => console.log(`Listening at Port ${PORT}`)))
+  .then(() => app.listen(process.env.PORT || 5000, () => console.log(`Listening at Port ${PORT}`)))
+ 
   .catch((error) => console.log(`${error} did not connect`));
 
 import express from "express";
